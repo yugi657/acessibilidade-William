@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/acessibilidade.css">
+    <title>Document</title>
+</head>
+<body>
+<button
+    class="read-button"
+    id="read-slide-btn"
+    type="button"
+    aria-label="Ler o slide atual em voz alta">
+    🔊 Ler slide
+</button>
+  <div
+            id="abrirAcessibilidade">
+    ⚝ Acessibilidade
+    </div>
+  </div>
+    <div
+  >
+    
+  </div>
+</div>
+
+
+<!-- <button id="Acessibilidade" aria-label="Abrir opções de acessibilidade">
+  ⚝ Acessibilidade
+</button> -->
+
+
+
+</div>
+
+<aside id="painelAcessibilidade" class="painel" hidden>
+  <div class="painel-header">
+    <h2>Acessibilidade</h2>
+    <button id="fecharAcessibilidade" aria-label="Fechar painel">
+      ×
+    </button>
+  </div>
+
+  <section>
+    <h3>Texto</h3>
+
+    <div class="opcoes">
+      <button data-recurso="textoMaior">
+        <span aria-hidden="true">Tᵀ</span>
+        Texto maior
+      </button>
+
+      <button data-recurso="alturaLinha">
+        <span aria-hidden="true">☰</span>
+        Altura da linha
+      </button>
+
+      <button data-recurso="alinharTexto">
+        <span aria-hidden="true">☷</span>
+        Alinhamento do texto
+      </button>
+
+      <button data-recurso="fonteLegivel">
+        <span aria-hidden="true">Aa</span>
+        Fonte legível
+      </button>
+    </div>
+  </section>
+
+  <section>
+    <h3>Visual</h3>
+
+    <div class="opcoes">
+      <button data-recurso="altoContraste">
+        <span aria-hidden="true">◐</span>
+        Contraste
+      </button>
+
+      <button data-recurso="cinza">
+        <span aria-hidden="true">◑</span>
+        Escala de cinza
+      </button>
+
+      <!-- <button data-recurso="ocultarImagens">
+        <span aria-hidden="true">▧</span>
+        Esconder imagens
+      </button> -->
+
+      <!-- <button data-recurso="pausarAnimacoes">
+        <span aria-hidden="true">⌁</span>
+        Pausar animações
+      </button> -->
+    </div>
+  </section>
+
+  <section>
+    <h3>Orientação</h3>
+
+    <div class="opcoes">
+      <button data-recurso="destacarLinks">
+        <span aria-hidden="true">↗</span>
+        Destacar links
+      </button>
+
+      <!-- <button data-recurso="mascaraLeitura">
+        <span aria-hidden="true">▱</span>
+        Máscara de leitura
+      </button> -->
+
+      <!-- <button data-recurso="contornoFoco">
+        <span aria-hidden="true">⌗</span>
+        Contorno de foco
+      </button> -->
+
+      <!-- <button data-recurso="estruturaPagina">
+        <span aria-hidden="true">▦</span>
+        Estrutura da página
+      </button> -->
+    </div>
+  </section>
+</aside>
+    
+    <div class="presentation-container">
+        <div class="presentation">
+            <div class="slide">
+                <div class="slide-header">
+                    <label for="slide-selector" class="sr-only">
+                        Selecionar slide
+                    </label>
+
+                    <select
+                        id="slide-selector"
+                        class="slide-select"
+                        aria-label="Selecionar slide">
+                    </select>
+                    <div class="slide-counter">
+                        <span id="current-slide">1</span> / <span id="total-slides">24</span>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <h1 class="title" id="slide-title"></h1>
+                    <h2 class="subtitle" id="slide-subtitle"></h2>
+                    <div class="slide-content" id="slide-content"></div>
+                </div>
+
+                <div class="footer">Aluno Guilherme Afonso</div>
+
+                <div class="navigation">
+                    <button class="nav-button" id="prev-btn" aria-label="Slide Anterior" disabled>&larr;</button>
+                    <button class="nav-button" id="next-btn" aria-label="Próximo Slide">&rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="js/acessibilidade.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>

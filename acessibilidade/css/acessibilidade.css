@@ -1,0 +1,436 @@
+:root {
+    --fonte-base: 24px;
+    --altura-linha: 1.5;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Verdana;
+    font-size: var(--fonte-base);
+    line-height: var(--altura-linha);
+    margin: 1;
+    color: #202124;
+    background: #eef1ff;
+    transition: filter 0.2s ease;
+  }
+  
+  button {
+    font: inherit;
+    cursor: pointer;
+  }
+  
+  #abrirAcessibilidade {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    padding: 14px 22px;
+    border: 0;
+    border-radius: 0 0 0 20px;
+    color: white;
+    background: #2d7da1;
+    font-weight: bold;
+  }
+  
+  body.alto-contraste #abrirAcessibilidade {
+    background: #7c3aed;
+  
+  }
+  
+  
+  .painel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 20;
+    width: max(100%);
+    height: 100vh;
+    overflow-y: auto;
+    padding: 84px 7px 20px;
+    background: #f4f6ff;
+    box-shadow: 4px 0 20px rgb(0 0 0 / 20%);
+    flex-direction: left;
+  }
+  
+  .painel::after {
+    animation: move;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+  
+  }
+  
+  .painel-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    color: white;
+    background: #2d7da1;
+  }
+  
+  body.alto-contraste .painel-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    color: white;
+    background: #7c3aed;
+  }
+  
+  .painel-header h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .painel-header button {
+    border: 0;
+    color: white;
+    background: transparent;
+    font-size: 32px;
+  }
+  
+  section {
+    margin-bottom: 16px;
+    padding: 20px;
+    border-radius: 20px;
+    background: white;
+  }
+  
+  h3 {
+    margin-top: 0;
+    color: #4e5563;
+    font-size: 16px;
+  }
+  
+  .opcoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  
+  .opcoes button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 80px;
+    padding: 12px;
+    border: 0;
+    border-radius: 16px;
+    text-align: left;
+    color: #202124;
+    background: #f1f1f1;
+  }
+  
+  body.alto-contraste .opcoes button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 80px;
+    padding: 12px;
+    border: 0;
+    border-radius: 16px;
+    text-align: left;
+    color: #f1f1f1;
+    background: #202124; 
+  }
+  
+  .opcoes button:hover,
+  .opcoes button.ativo {
+    outline: 3px solid #7c3aed;
+  }
+  
+  .opcoes span {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    place-items: center;
+    border-radius: 50%;
+    background: white;
+    font-size: 20px;
+  }
+  
+  body.alto-contraste .opcoes span {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    place-items: center;
+    border-radius: 50%;
+    background: rgb(0, 0, 0); 
+    font-size: 20px;
+  }
+  
+  
+  /* Recursos de acessibilidade */
+  
+  body.texto-maior {
+    --fonte-base: 30px;
+  }
+  
+  body.altura-linha {
+    --altura-linha: 4;
+    --altura-span: 4;
+  }
+  
+  body.alto-contraste {
+    color: #fff;
+    background: #000;
+  }
+  
+  body.alto-contraste .painel,
+  body.alto-contraste .content,
+  body.alto-contraste .slide,
+  body.alto-contraste section {
+    color: #241c1c;
+    background: #1d1a1a;
+  
+  }
+  
+  
+  body.alto-contraste a {
+    color: #ff0;
+  }
+  
+  body.cinza {
+    filter: grayscale(1);
+  }
+  
+  body.fonte-legivel {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  
+  }
+  
+  body.alinhar-texto {
+    text-align:center;
+    
+  }
+  
+  body.ocultar-imagens img {
+    visibility: hidden;
+  }
+  
+  body.pausar-animacoes *,
+  body.pausar-animacoes *::before,
+  body.pausar-animacoes *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  body.destacar-links a {
+    padding: 2px 4px;
+    color: #000;
+    background: #76daf3;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  
+  body.contorno-foco :focus-visible {
+    outline: 4px solid #ff7a00;
+    outline-offset: 3px;
+  }
+  
+  @media (max-width: 420px) {
+    .opcoes {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Reset total */
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  
+  /* Ocupa toda a viewport e remove scroll externo */
+  html, body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+  }
+  
+  /* Container que cria o efeito de "moldura" ao redor do slide */
+  .presentation-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* Adiciona um respiro entre a borda da tela e o slide */
+      padding: 4vmin; 
+  }
+  
+  /* O Slide com efeito de borda e sombra, mas responsivo */
+  .presentation {
+      width: 100%;
+      height: 100%;
+      max-width: 1400px; /* Limite opcional para não esticar demais em telas ultra-largas */
+      background: white;
+      border-radius: 12px; /* A borda arredondada que você queria */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra para dar profundidade */
+      position: relative;
+      overflow: hidden; /* Garante que o degradê interno respeite o arredondamento */
+      display: flex;
+      flex-direction: column;
+  }
+  
+  /* Conteúdo interno do slide */
+  .slide {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 4vh 5vw;
+      background: linear-gradient(135deg, #e6f0ff 0%, #f0e6ff 100%);
+  }
+  
+  .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2vh;
+  }
+  
+  .slide-select {
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+      background: white;
+      font-size: 0.9rem;
+      cursor: pointer;
+      color: #4b5563;
+  }
+  
+  .slide-counter {
+      color: #666;
+      font-weight: bold;
+      font-size: 1rem;
+  }
+  
+  /* Centralização do conteúdo */
+  .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow-y: auto;
+  }
+  
+  
+  
+  .title {
+      font-size: clamp(1.5rem, 6vh, 3rem);
+      font-weight: bold;
+      color: #2563eb;
+      margin-bottom: 2vh;
+  }
+  
+  .subtitle {
+      font-size: clamp(1.1rem, 3.5vh, 1.8rem);
+      font-weight: 600;
+      color: #7c3aed;
+      margin-bottom: 3vh;
+  }
+  
+  .slide-content {
+      width: 100%;
+      max-width: 850px;
+      text-align: left;
+  }
+  .slide-contentPrincipal{
+      width: 100%;
+      max-width: 850px;
+      text-align: center;
+  }
+  
+  .slide-content p, 
+  .slide-content li {
+      font-size: clamp(1rem, 2.8vh, 1.4rem);
+      color: #4b5563;
+      margin-bottom: 1.2vh;
+      line-height: 1.4;
+  }
+  
+  /* Rodapé e Navegação */
+  .footer {
+      position: absolute;
+      bottom: 2vh;
+      right: 2vw;
+      font-size: 0.8rem;
+      color: #64748b;
+  }
+  
+  .navigation {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 2vh 0;
+  }
+  
+  .nav-button {
+      width: 45px;
+      height: 45px;
+      border: none;
+      border-radius: 50%;
+      background: #2563eb;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+  }
+  
+  .nav-button:disabled {
+      background: #cbd5e1;
+      cursor: not-allowed;
+  }
+  
+  .nav-button:hover:not(:disabled) {
+      background: #1d4ed8;
+  }
+  
+  /* Responsividade para Imagens */
+  .slide-content img {
+      max-height: 35vh;
+      width: auto;
+      border-radius: 8px;
+      margin: 1vh auto;
+  }
+  
+  .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+  }
+  
+  .slide-content.slide-centralizado {
+      text-align: center;
+  }
+  
+  .slide-content.slide-centralizado img {
+      display: block;
+      margin: 0 auto;
+  }
